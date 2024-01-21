@@ -2,7 +2,9 @@
 
 namespace OscarWeijman\LaravelExample;
 
+use Illuminate\Support\Facades\Route;
 use OscarWeijman\LaravelExample\Commands\LaravelExampleCommand;
+use OscarWeijman\LaravelExample\Http\Controllers\MyController;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -18,8 +20,19 @@ class LaravelExampleServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-example')
             ->hasConfigFile()
-//            ->hasViews()
-//            ->hasMigration('create_laravel-example_table')
+            ->hasViews()
+            ->hasMigration('create_example_table')
             ->hasCommand(LaravelExampleCommand::class);
+    }
+
+    public function packageRegistered()
+    {
+        Route::macro('example', function (string $baseUrl = 'example') {
+
+            Route::prefix($baseUrl)->group(function () {
+                Route::get('/', [MyController::class, 'index']);
+            });
+
+        });
     }
 }
