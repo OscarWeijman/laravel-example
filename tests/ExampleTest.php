@@ -7,7 +7,7 @@ it('can test', function () {
     \Pest\Laravel\artisan(LaravelExampleCommand::class)->assertExitCode(Command::SUCCESS);
 });
 
-it('will test original output', function() {
+it('will test original output', function () {
     $text = config('example.command_output');
     \Pest\Laravel\artisan(LaravelExampleCommand::class)
         ->expectsOutput('Output configured in config file');
