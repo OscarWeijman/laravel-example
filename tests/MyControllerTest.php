@@ -11,5 +11,5 @@ it('has a route', function () {
 it('do the same, has a route', function () {
     $this->get(action([MyController::class, 'index']))
         ->assertOk()
-        ->assertSee('ok');
+        ->assertSee('hi from view');
 });
