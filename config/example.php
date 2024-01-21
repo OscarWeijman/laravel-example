@@ -1,6 +1,10 @@
 <?php
 
 // config for OscarWeijman/LaravelExample
-return [
 
+/*
+ * This value will be shown when the example command is executed
+ */
+return [
+    'command_ouput' => 'Output configured in config file'
 ];
