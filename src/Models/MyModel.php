@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class MyModel extends Model
 {
-
     use HasFactory;
 
     public $table = 'laravel_example_table';
@@ -18,5 +17,4 @@ class MyModel extends Model
     {
         return strtoupper($this->name);
     }
-
 }
